@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <script src="jquery-3.2.1.js"></script>
+  <title>Jquery partie 3</title>
+</head>
+<body>
+  <p>Trouver un chiffre entre 0 et 100</p>
+  <input type="text" name="number" value="" id="number" />
+  <button type="button" name="button">Valider la réponse</button>
+  <script>
+  $(function(){
+    var number = Math.floor(100*Math.random())+1;//Math.floor pour un nombre entier et Math.random pour un nombre aléatoire, +1 pour ne pas prendre le 0.le 100 n'est pas prit car il est exclu
+    var counter = 0;
+    $('button').click(function(){
+      counter ++;
+      var result = $('input').val();
+      if((isNaN(result)==false) && (result < 100)){
+        if(result < number){
+          alert('plus');
+        }else if(result > number){
+          alert('moins');
+        }else{
+          alert('correct, vous avez gagné en ' + counter + ' coups');
+        }
+      }else{
+        alert('ne saisissez que des chiffres compris entre 0 et 100');
+      }
+    });
+  });
+</script>
+</body>
+</html>
